@@ -329,6 +329,7 @@ name | method | http | root | mapping
 ---|---|---|---|---
 HomeController | login | GET |  | /loginstatus
 HomeController | availableCheck | GET |  | /go
+HomeController | vip_login | GET |  | /vip/{templateId}
 
 ### workspace
 name | method | http | root | mapping
@@ -343,6 +344,7 @@ HomeController | setting3 | GET |  | /s/{workspaceId}/{path}
 HomeController | join | GET |  | /join/{workspaceId}
 HomeController | UpdateGuide | POST |  | /updateguide
 HomeController | brief2 | GET |  | /b/{id}
+MessageController | getMessages | GET | /message | /list
 WorkspaceApplyController | getApplyPage | GET | / | /apply
 WorkspaceApplyController | getApplyMobile | GET | / | /apply/mobile
 WorkspaceApplyController | getWorkspaceApply | POST | / | /apply
@@ -404,6 +406,7 @@ WorkspaceOauthAPIController | invite | POST | /oauth | /{workspaceId}/group/{gro
 WorkspaceOauthAPIController | getMemberInfo | GET | /oauth | /{workspaceId}/member/{memberId}
 WorkspaceOauthAPIController | put | PUT | /oauth | /{workspaceId}/member/{memberId}
 WorkspaceOauthAPIController | deleteMember | DELETE | /oauth | /{workspaceId}/member/{memberIds}
+WorkspaceOauthAPIController | queryWorkSpaceActivity | GET | /oauth | /{workspaceId}/activity
 
 ### activity
 name | method | http | root | mapping
@@ -431,9 +434,11 @@ CoquiOauthAPIController | getTaskExecutor | GET | /oauth/workspace/{workspaceId}
 CoquiOauthAPIController | getTaskObserver | GET | /oauth/workspace/{workspaceId} | /task/{taskId}/observer
 CoquiOauthAPIController | getCheckList | GET | /oauth/workspace/{workspaceId} | /task/{taskId}/checklist
 CoquiOauthAPIController | getAction | GET | /oauth/workspace/{workspaceId} | /task/{taskId}/action
-CoquiOauthAPIController | executeAction | PUT | /oauth/workspace/{workspaceId} | /task/{taskId}/action/{actionOpId}
+CoquiOauthAPIController | deleteResource | DELETE | /oauth/workspace/{workspaceId} | /taskset/{taskGroupId}/task/{taskId}/resource/{resourceId}
+CoquiOauthAPIController | excuteAction | PUT | /oauth/workspace/{workspaceId} | /taskset/{taskGroupId}/task/{taskId}/taskaction/{taskActionId}
 CoquiOauthAPIController | getActionResult | GET | /oauth/workspace/{workspaceId} | /task/{taskId}/actionResult
 CoquiOauthAPIController | updateCheckList | PUT | /oauth/workspace/{workspaceId} | /task/{taskId}/checklist/{checkListId}
+CoquiOauthAPIController | deleteTask | DELETE | /oauth/workspace/{workspaceId} | /taskset/{taskGroupId}/task/{taskId}
 CoquiOauthAPIController | deleteCheckList | DELETE | /oauth/workspace/{workspaceId} | /task/{taskId}/checklist/{checkListId}
 CoquiOauthAPIController | getTaskResource | GET | /oauth/workspace/{workspaceId} | /task/{taskId}/attachment/{attachmentId}
 CoquiOauthAPIController | addResource | POST | /oauth/workspace/{workspaceId} | /task/{taskId}/attachment
