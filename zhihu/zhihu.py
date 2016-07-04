@@ -24,4 +24,4 @@ print jquery_str
 
 chrome.execute_script(jquery_str)
 name_str = "$('.name.input-wrapper input').val('asdasdasd1was%s')" % random.randrange(10000)
-chrome.execute_script()
+chrome.execute_script(name_str)
