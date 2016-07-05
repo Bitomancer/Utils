@@ -1,0 +1,39 @@
+// ä¯ÀÀÆ÷Â·¾¶
+path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+// Æô¶¯ä¯ÀÀÆ÷
+If Plugin.chrome.launch(path, "--user-data-dir=D:\Data\Chrome_01") = False Then 
+    TracePrint "Æô¶¯Ê§°Ü"
+    ExitScript
+End If
+
+// »ñÈ¡Æô¶¯ä¯ÀÀÆ÷ºóµÄÄ¬ÈÏ±êÇ©
+id = Plugin.chrome.get_ids()
+If id = "" Then 
+         TracePrint "»ñÈ¡±êÇ©idÊ§°Ü"
+        ExitScript
+End If
+
+// Ìø×ªµ½°Ù¶È
+Call Plugin.chrome.load(id, "https://www.zhihu.com")
+
+// µÈ´ýÔØÈëÍê³É
+Do
+    Delay 1000
+    TracePrint "..."
+Loop While Plugin.chrome.is_loading(id)
+
+//Call Plugin.Console.Open()
+//Call Plugin.Console.WriteLine("ÇëËæÒâÊäÈë¼¸¸ö×Ö£¬È»ºó°´»Ø³µ" & vbclrf)
+//ReadLine = Plugin.Console.ReadLine()
+//TracePrint ReadLine
+//Call Plugin.Console.Close()
+Hwnd = Split(Plugin.Window.Search("Öªºõ"), "|")(0)
+TracePrint Hwnd
+
+RandomId = CInt(Rnd() * 10000) + 1
+Fullname = "aof12ashdfdfg" & CStr(RandomId)
+TracePrint Fullname
+
+
+
+Call Plugin.chrome.quit()
