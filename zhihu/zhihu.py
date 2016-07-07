@@ -22,8 +22,17 @@ email_str = "$('.view-signup input[name=\"account\"]').val('asdasdasd1was%s@qq.c
 password_str = "$('.view-signup input[name=\"password\"]').val('111111')"
 captcha_str = "$('.view-signup input[name=\"captcha\"]').val('%s')" % captcha
 submit_str = "$('.view-signup .sign-button.submit').click()"
-chrome.execute_script(name_str)
-chrome.execute_script(email_str)
-chrome.execute_script(password_str)
-chrome.execute_script(captcha_str)
-chrome.execute_script(submit_str)
+# chrome.execute_script(name_str)
+# chrome.execute_script(email_str)
+# chrome.execute_script(password_str)
+# chrome.execute_script(captcha_str)
+# chrome.execute_script(submit_str)
+chrome.find_element_by_css_selector('.view-signup input[name=\"fullname\"]').click()
+chrome.find_element_by_css_selector('.view-signup input[name=\"fullname\"]').send_keys('asdasdasd1was%s' % random.randrange(10000))
+chrome.find_element_by_css_selector('.view-signup input[name=\"account\"]').click()
+chrome.find_element_by_css_selector('.view-signup input[name=\"account\"]').send_keys('asdasdasd1was%s@qq.com' % random.randrange(10000))
+chrome.find_element_by_css_selector('.view-signup input[name=\"password\"]').click()
+chrome.find_element_by_css_selector('.view-signup input[name=\"password\"]').send_keys('111111')
+chrome.find_element_by_css_selector('.view-signup input[name=\"captcha\"]').click()
+chrome.find_element_by_css_selector('.view-signup input[name=\"captcha\"]').send_keys(captcha)
+chrome.find_element_by_css_selector('.view-signup .sign-button.submit').click()
