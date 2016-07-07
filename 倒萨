@@ -1,0 +1,34 @@
+path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+If Plugin.chrome.launch(path, "--window-size=800,600||--proxy-server=socks5://127.0.0.1:8090||--user-data-dir=D:\Data\Chrome_01") = False Then 
+    TracePrint "launch failed"
+    ExitScript
+End If
+
+id = Plugin.chrome.get_ids()
+If id = "" Then 
+        TracePrint "launch failed"
+        ExitScript
+End If
+
+Call Plugin.chrome.load(id, "https://www.zhihu.com")
+
+Do
+    Delay 1000
+    TracePrint "..."
+Loop While Plugin.chrome.is_loading(id)
+
+//Call Plugin.Console.Open()
+//Call Plugin.Console.WriteLine("input" & vbclrf)
+//ReadLine = Plugin.Console.ReadLine()
+//TracePrint ReadLine
+//Call Plugin.Console.Close()
+Hwnd = Split(Plugin.Window.Search("知乎"), "|")(0)
+TracePrint Hwnd
+
+RandomId = CInt(Rnd() * 10000) + 1
+Fullname = "aof12ashdfdfg" & CStr(RandomId)
+TracePrint Fullname
+
+
+
+//Call Plugin.chrome.quit()
